@@ -1,11 +1,14 @@
 const express = require('express');
-const userModel = require("../models/Users.model");
 const auth = express.Router();
-const { register } = require('../controllers/auth.controllers.js')
+const { 
+    register, 
+    login 
+} = require('../controllers/auth.controllers.js')
 
 
-// register user
+// user authentication
 auth.post('/register', register);
+auth.post('/login', login);
 
 
 module.exports = { auth };

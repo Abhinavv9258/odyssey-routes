@@ -5,6 +5,8 @@ const db = require('./connection/connection');
 const app = express();
 const port = process.env.PORT;
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 
 //import routes
 const { auth } = require("./middleware/auth.js");
@@ -24,6 +26,7 @@ mongoose.connection.on("connected", () => {
 });
 
 // middleware routes
+app.use(cookieParser());
 app.use(express.json());
 app.use("/api/auth", auth);
 

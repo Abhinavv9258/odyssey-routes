@@ -39,10 +39,6 @@ const schema = mongoose.Schema(
             type: Date,
             default: Date.now
         },
-        updateAt: {
-            type: Date,
-            default: Date.now
-        },
         isAdmin: {
             type: 'boolean',
             default: false

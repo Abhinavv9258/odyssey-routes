@@ -8,15 +8,17 @@ const {
     getAllCourses 
 } = require('../controllers/courses.controllers.js')
 
+const { verifyAdmin } = require('../utils/verifyToken.js')
+
 
 //CREATE
-courseRoutes.post("/", createCourse);
+courseRoutes.post("/", verifyAdmin, createCourse);
 
 //UPDATE
-courseRoutes.put("/:id", updateCourse);
+courseRoutes.put("/:id", verifyAdmin, updateCourse);
 
 //DELETE
-courseRoutes.delete("/:id", deleteCourse);
+courseRoutes.delete("/:id", verifyAdmin, deleteCourse);
 
 //GET
 courseRoutes.get("/:id", getCourse);
